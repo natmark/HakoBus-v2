@@ -1,9 +1,4 @@
 function doGet(e) {
- if(e.parameter.s){
-    param = e.parameter.s;
-  }else{
-    param = "";
-  }
   var response = UrlFetchApp.fetch("https://hakobus.bus-navigation.jp/wgsys/wgp/search.htm?tabName=routeTab&locale=ja&from=&to=");
   var html = response.getContentText()
   var blocks = html.match(/<tr class="item first">[\s\S]*?<\/a>/ig)
