@@ -8,6 +8,22 @@ HakoBus App supported new bus location system
 
 - [navigation](https://app.swaggerhub.com/apis/natmark/hakobus-navigation-api/1.0.0-oas3)
 
+## Get Bus stops
+- BaseURL(GAS): `https://script.google.com/macros/s/AKfycbw1TI6OFxgd6iST4L-34oNfG-aSb8KgJZMR06w_Xfmgn4Q8SLVH/exec`
+- HTTP Method: `GET`
+- Request Parameters:
+  - **search_text**
+    - string(path)
+ - Example Response
+ ```
+[
+  {
+    name: "あわび山荘前",
+    stopcode: "82046"
+  }
+]
+ ```
+
 ## Get Bus Approach Infomation
 - BaseURL(GAS): `https://script.google.com/macros/s/AKfycbzBiiZZEr6p3rLlWiCyvSIOwkx9ed5z_C3xKul206VTMtI5DcBp/exec`
 - HTTP Method: `GET`
