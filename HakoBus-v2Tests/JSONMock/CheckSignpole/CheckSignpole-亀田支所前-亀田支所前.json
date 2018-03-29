@@ -1,0 +1,11 @@
+{
+    "successStatus": false,
+    "errors": [
+               {
+               "errorCd": null,
+               "errorMessage": "起点「出発」及び終点「到着」はそれぞれ違う値を選んでください。",
+               "errorType": "3",
+               "rowNumber": null
+               }
+    ]
+}
