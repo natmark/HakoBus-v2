@@ -1,0 +1,11 @@
+{
+    "successStatus": false,
+    "errors": [
+        {
+            "errorCd": null,
+            "errorMessage": "到着 指定した停留所は見つかりませんでした。",
+            "errorType": "3",
+            "rowNumber": null
+        }
+    ]
+}
