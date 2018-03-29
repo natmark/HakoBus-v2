@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E70231CA206D9F2800C8D4F1 /* CheckSignpole-亀田支所前-はこだて未来大学.json in Resources */ = {isa = PBXBuildFile; fileRef = E70231C8206D9F2800C8D4F1 /* CheckSignpole-亀田支所前-はこだて未来大学.json */; };
 		E70231CB206D9F2800C8D4F1 /* CheckSignpole-空港-はこだて未来大学.json in Resources */ = {isa = PBXBuildFile; fileRef = E70231C9206D9F2800C8D4F1 /* CheckSignpole-空港-はこだて未来大学.json */; };
+		E70231CC206DAC0B00C8D4F1 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7FC3AF7206D798400B7C072 /* OHHTTPStubs.framework */; };
 		E7881BAA206D807B007EC259 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7FC3AF7206D798400B7C072 /* OHHTTPStubs.framework */; };
 		E7881BAC206D8351007EC259 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7881BAB206D8351007EC259 /* HttpHelper.swift */; };
 		E7881BB0206D8804007EC259 /* CheckSignpole.json in Resources */ = {isa = PBXBuildFile; fileRef = E7881BAF206D8804007EC259 /* CheckSignpole.json */; };
@@ -96,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E70231CC206DAC0B00C8D4F1 /* OHHTTPStubs.framework in Frameworks */,
 				E7FC3AEA206D3F6E00B7C072 /* RxCocoa.framework in Frameworks */,
 				E7FC3AEB206D3F6E00B7C072 /* RxBlocking.framework in Frameworks */,
 				E7FC3AEC206D3F6E00B7C072 /* APIKit.framework in Frameworks */,
@@ -396,6 +398,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/APIKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
 			);
 			name = "[Cartfile] Run Script";
 			outputPaths = (
