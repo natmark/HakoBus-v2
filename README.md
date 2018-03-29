@@ -9,7 +9,7 @@ HakoBus App supported new bus location system
 - [navigation](https://app.swaggerhub.com/apis/natmark/hakobus-navigation-api/1.0.0-oas3)
 
 ## Get Bus stops
-![Server Running Chacker](https://img.shields.io/badge/dynamic/json.svg?label=server&colorB=FF7F50&query=$.message&uri=https://script.google.com/macros/s/AKfycbw1TI6OFxgd6iST4L-34oNfG-aSb8KgJZMR06w_Xfmgn4Q8SLVH/exec?url=https://script.google.com/macros/s/AKfycbw1TI6OFxgd6iST4L-34oNfG-aSb8KgJZMR06w_Xfmgn4Q8SLVH/exec)
+![Server Running Chacker](https://img.shields.io/badge/dynamic/json.svg?label=server&colorB=FF7F50&query=$.message&uri=https://script.google.com/macros/s/AKfycbxk8eerT1zPLjenWVk_mJJAFTSkN8pslCp9kQQjd1Aldltckak/exec?url=https://script.google.com/macros/s/AKfycbw1TI6OFxgd6iST4L-34oNfG-aSb8KgJZMR06w_Xfmgn4Q8SLVH/exec)
 
 - BaseURL(GAS): `https://script.google.com/macros/s/AKfycbw1TI6OFxgd6iST4L-34oNfG-aSb8KgJZMR06w_Xfmgn4Q8SLVH/exec`
 - HTTP Method: `GET`
@@ -27,7 +27,7 @@ HakoBus App supported new bus location system
  ```
 
 ## Get Bus Approach Infomation
-![Server Running Chacker](https://img.shields.io/badge/dynamic/json.svg?label=server&colorB=FF7F50&query=$.message&uri=https://script.google.com/macros/s/AKfycbzBiiZZEr6p3rLlWiCyvSIOwkx9ed5z_C3xKul206VTMtI5DcBp/exec?url=https://script.google.com/macros/s/AKfycbzBiiZZEr6p3rLlWiCyvSIOwkx9ed5z_C3xKul206VTMtI5DcBp/exec)
+![Server Running Chacker](https://img.shields.io/badge/dynamic/json.svg?label=server&colorB=FF7F50&query=$.message&uri=https://script.google.com/macros/s/AKfycbxk8eerT1zPLjenWVk_mJJAFTSkN8pslCp9kQQjd1Aldltckak/exec?url=https://script.google.com/macros/s/AKfycbzBiiZZEr6p3rLlWiCyvSIOwkx9ed5z_C3xKul206VTMtI5DcBp/exec)
 - BaseURL(GAS): `https://script.google.com/macros/s/AKfycbzBiiZZEr6p3rLlWiCyvSIOwkx9ed5z_C3xKul206VTMtI5DcBp/exec`
 - HTTP Method: `GET`
 - Request Parameters:
