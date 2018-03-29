@@ -10,8 +10,14 @@
 		E70231CA206D9F2800C8D4F1 /* CheckSignpole-亀田支所前-はこだて未来大学.json in Resources */ = {isa = PBXBuildFile; fileRef = E70231C8206D9F2800C8D4F1 /* CheckSignpole-亀田支所前-はこだて未来大学.json */; };
 		E70231CB206D9F2800C8D4F1 /* CheckSignpole-空港-はこだて未来大学.json in Resources */ = {isa = PBXBuildFile; fileRef = E70231C9206D9F2800C8D4F1 /* CheckSignpole-空港-はこだて未来大学.json */; };
 		E7881BAA206D807B007EC259 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7FC3AF7206D798400B7C072 /* OHHTTPStubs.framework */; };
+		E7881BAC206D8351007EC259 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7881BAB206D8351007EC259 /* HttpHelper.swift */; };
 		E7881BB0206D8804007EC259 /* CheckSignpole.json in Resources */ = {isa = PBXBuildFile; fileRef = E7881BAF206D8804007EC259 /* CheckSignpole.json */; };
 		E7881BB2206D88FF007EC259 /* CheckSignpole-亀田支所前-未来大.json in Resources */ = {isa = PBXBuildFile; fileRef = E7881BB1206D88FF007EC259 /* CheckSignpole-亀田支所前-未来大.json */; };
+		E7881BB7206D948F007EC259 /* BusRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7881BB6206D948F007EC259 /* BusRequest.swift */; };
+		E7881BB9206D9660007EC259 /* GetBusApproachRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7881BB8206D9660007EC259 /* GetBusApproachRequest.swift */; };
+		E7881BBB206D9705007EC259 /* BusStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7881BBA206D9705007EC259 /* BusStop.swift */; };
+		E7881BBD206D9745007EC259 /* GetBusStopsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7881BBC206D9745007EC259 /* GetBusStopsRequest.swift */; };
+		E7881BBF206D982C007EC259 /* BusLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7881BBE206D982C007EC259 /* BusLocation.swift */; };
 		E7FC3AB5206D338F00B7C072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FC3AB4206D338F00B7C072 /* AppDelegate.swift */; };
 		E7FC3AB7206D338F00B7C072 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FC3AB6206D338F00B7C072 /* ViewController.swift */; };
 		E7FC3ABA206D338F00B7C072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7FC3AB8206D338F00B7C072 /* Main.storyboard */; };
@@ -24,6 +30,10 @@
 		E7FC3AEC206D3F6E00B7C072 /* APIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7FC3AE7206D3F6E00B7C072 /* APIKit.framework */; };
 		E7FC3AED206D3F6E00B7C072 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7FC3AE8206D3F6E00B7C072 /* Result.framework */; };
 		E7FC3AEE206D3F6E00B7C072 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7FC3AE9206D3F6E00B7C072 /* RxSwift.framework */; };
+		E7FC3AF1206D5DAD00B7C072 /* CheckSignpoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FC3AF0206D5DAD00B7C072 /* CheckSignpoleRequest.swift */; };
+		E7FC3AF4206D5EFC00B7C072 /* CheckSignpoleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FC3AF3206D5EFC00B7C072 /* CheckSignpoleResponse.swift */; };
+		E7FC3AF6206D712400B7C072 /* DecodableDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FC3AF5206D712300B7C072 /* DecodableDataParser.swift */; };
+		E7FC3AFA206D79E400B7C072 /* CheckSignpoleRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FC3AF9206D79E400B7C072 /* CheckSignpoleRequestTests.swift */; };
 		E7FC3AFE206D7B3100B7C072 /* CheckSignpole-亀田支所前-亀田支所前.json in Resources */ = {isa = PBXBuildFile; fileRef = E7FC3AFD206D7B3100B7C072 /* CheckSignpole-亀田支所前-亀田支所前.json */; };
 /* End PBXBuildFile section */
 
@@ -47,8 +57,14 @@
 /* Begin PBXFileReference section */
 		E70231C8206D9F2800C8D4F1 /* CheckSignpole-亀田支所前-はこだて未来大学.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "CheckSignpole-亀田支所前-はこだて未来大学.json"; sourceTree = "<group>"; };
 		E70231C9206D9F2800C8D4F1 /* CheckSignpole-空港-はこだて未来大学.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "CheckSignpole-空港-はこだて未来大学.json"; sourceTree = "<group>"; };
+		E7881BAB206D8351007EC259 /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
 		E7881BAF206D8804007EC259 /* CheckSignpole.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CheckSignpole.json; sourceTree = "<group>"; };
 		E7881BB1206D88FF007EC259 /* CheckSignpole-亀田支所前-未来大.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "CheckSignpole-亀田支所前-未来大.json"; sourceTree = "<group>"; };
+		E7881BB6206D948F007EC259 /* BusRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusRequest.swift; sourceTree = "<group>"; };
+		E7881BB8206D9660007EC259 /* GetBusApproachRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBusApproachRequest.swift; sourceTree = "<group>"; };
+		E7881BBA206D9705007EC259 /* BusStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStop.swift; sourceTree = "<group>"; };
+		E7881BBC206D9745007EC259 /* GetBusStopsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBusStopsRequest.swift; sourceTree = "<group>"; };
+		E7881BBE206D982C007EC259 /* BusLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusLocation.swift; sourceTree = "<group>"; };
 		E7FC3AB1206D338F00B7C072 /* HakoBus-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HakoBus-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7FC3AB4206D338F00B7C072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7FC3AB6206D338F00B7C072 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +83,11 @@
 		E7FC3AE7206D3F6E00B7C072 /* APIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIKit.framework; path = Carthage/Build/iOS/APIKit.framework; sourceTree = "<group>"; };
 		E7FC3AE8206D3F6E00B7C072 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		E7FC3AE9206D3F6E00B7C072 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		E7FC3AF0206D5DAD00B7C072 /* CheckSignpoleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckSignpoleRequest.swift; sourceTree = "<group>"; };
+		E7FC3AF3206D5EFC00B7C072 /* CheckSignpoleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckSignpoleResponse.swift; sourceTree = "<group>"; };
+		E7FC3AF5206D712300B7C072 /* DecodableDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableDataParser.swift; sourceTree = "<group>"; };
 		E7FC3AF7206D798400B7C072 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
+		E7FC3AF9206D79E400B7C072 /* CheckSignpoleRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckSignpoleRequestTests.swift; sourceTree = "<group>"; };
 		E7FC3AFD206D7B3100B7C072 /* CheckSignpole-亀田支所前-亀田支所前.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "CheckSignpole-亀田支所前-亀田支所前.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +160,7 @@
 			children = (
 				E7FC3AB4206D338F00B7C072 /* AppDelegate.swift */,
 				E7FC3AB6206D338F00B7C072 /* ViewController.swift */,
+				E7FC3AEF206D5C7E00B7C072 /* APIClient */,
 				E7FC3AB8206D338F00B7C072 /* Main.storyboard */,
 				E7FC3ABB206D338F00B7C072 /* Assets.xcassets */,
 				E7FC3ABD206D338F00B7C072 /* LaunchScreen.storyboard */,
@@ -151,7 +172,10 @@
 		E7FC3AC8206D339000B7C072 /* HakoBus-v2Tests */ = {
 			isa = PBXGroup;
 			children = (
+				E7FC3AFC206D7AFB00B7C072 /* JSONMock */,
 				E7FC3AC9206D339000B7C072 /* HakoBus_v2Tests.swift */,
+				E7881BAB206D8351007EC259 /* HttpHelper.swift */,
+				E7FC3AF9206D79E400B7C072 /* CheckSignpoleRequestTests.swift */,
 				E7FC3ACB206D339000B7C072 /* Info.plist */,
 			);
 			path = "HakoBus-v2Tests";
@@ -177,6 +201,37 @@
 				E7FC3AE9206D3F6E00B7C072 /* RxSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E7FC3AEF206D5C7E00B7C072 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				E7FC3AF2206D5EBF00B7C072 /* Model */,
+				E7FC3AF0206D5DAD00B7C072 /* CheckSignpoleRequest.swift */,
+				E7881BB8206D9660007EC259 /* GetBusApproachRequest.swift */,
+				E7881BBC206D9745007EC259 /* GetBusStopsRequest.swift */,
+				E7881BB6206D948F007EC259 /* BusRequest.swift */,
+				E7FC3AF5206D712300B7C072 /* DecodableDataParser.swift */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
+		E7FC3AF2206D5EBF00B7C072 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E7FC3AF3206D5EFC00B7C072 /* CheckSignpoleResponse.swift */,
+				E7881BBA206D9705007EC259 /* BusStop.swift */,
+				E7881BBE206D982C007EC259 /* BusLocation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E7FC3AFC206D7AFB00B7C072 /* JSONMock */ = {
+			isa = PBXGroup;
+			children = (
+				E7881BB5206D89D9007EC259 /* CheckSignpole */,
+			);
+			path = JSONMock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,8 +411,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7881BBB206D9705007EC259 /* BusStop.swift in Sources */,
+				E7FC3AF4206D5EFC00B7C072 /* CheckSignpoleResponse.swift in Sources */,
+				E7FC3AF6206D712400B7C072 /* DecodableDataParser.swift in Sources */,
 				E7FC3AB7206D338F00B7C072 /* ViewController.swift in Sources */,
+				E7881BB7206D948F007EC259 /* BusRequest.swift in Sources */,
 				E7FC3AB5206D338F00B7C072 /* AppDelegate.swift in Sources */,
+				E7881BB9206D9660007EC259 /* GetBusApproachRequest.swift in Sources */,
+				E7881BBF206D982C007EC259 /* BusLocation.swift in Sources */,
+				E7FC3AF1206D5DAD00B7C072 /* CheckSignpoleRequest.swift in Sources */,
+				E7881BBD206D9745007EC259 /* GetBusStopsRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +429,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7FC3ACA206D339000B7C072 /* HakoBus_v2Tests.swift in Sources */,
+				E7FC3AFA206D79E400B7C072 /* CheckSignpoleRequestTests.swift in Sources */,
+				E7881BAC206D8351007EC259 /* HttpHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
