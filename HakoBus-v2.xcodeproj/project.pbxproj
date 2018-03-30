@@ -22,9 +22,9 @@
 		E78FE66A206E2ACB00B20707 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78FE669206E2ACB00B20707 /* Swinject.framework */; };
 		E78FE66D206E2C5E00B20707 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FE66C206E2C5E00B20707 /* UIViewController.swift */; };
 		E78FE66F206E2C7A00B20707 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FE66E206E2C7900B20707 /* Session.swift */; };
+		E78FE675206E2F9C00B20707 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FE674206E2F9C00B20707 /* SearchViewController.swift */; };
+		E78FE677206E2FA900B20707 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E78FE676206E2FA900B20707 /* SearchViewController.storyboard */; };
 		E7FC3AB5206D338F00B7C072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FC3AB4206D338F00B7C072 /* AppDelegate.swift */; };
-		E7FC3AB7206D338F00B7C072 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FC3AB6206D338F00B7C072 /* ViewController.swift */; };
-		E7FC3ABA206D338F00B7C072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7FC3AB8206D338F00B7C072 /* Main.storyboard */; };
 		E7FC3ABC206D338F00B7C072 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7FC3ABB206D338F00B7C072 /* Assets.xcassets */; };
 		E7FC3ABF206D338F00B7C072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7FC3ABD206D338F00B7C072 /* LaunchScreen.storyboard */; };
 		E7FC3ACA206D339000B7C072 /* HakoBus_v2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FC3AC9206D339000B7C072 /* HakoBus_v2Tests.swift */; };
@@ -72,10 +72,10 @@
 		E78FE669206E2ACB00B20707 /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
 		E78FE66C206E2C5E00B20707 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		E78FE66E206E2C7900B20707 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		E78FE674206E2F9C00B20707 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E78FE676206E2FA900B20707 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		E7FC3AB1206D338F00B7C072 /* HakoBus-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HakoBus-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7FC3AB4206D338F00B7C072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7FC3AB6206D338F00B7C072 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E7FC3AB9206D338F00B7C072 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7FC3ABB206D338F00B7C072 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7FC3ABE206D338F00B7C072 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7FC3AC0206D338F00B7C072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -152,6 +152,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		E78FE673206E2EF900B20707 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E78FE674206E2F9C00B20707 /* SearchViewController.swift */,
+				E78FE676206E2FA900B20707 /* SearchViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E7FC3AA8206D338F00B7C072 = {
 			isa = PBXGroup;
 			children = (
@@ -176,14 +185,13 @@
 		E7FC3AB3206D338F00B7C072 /* HakoBus-v2 */ = {
 			isa = PBXGroup;
 			children = (
+				E78FE673206E2EF900B20707 /* View */,
 				E7FC3AEF206D5C7E00B7C072 /* APIClient */,
 				E78FE66B206E2C4D00B20707 /* Extension */,
 				E7FC3AB4206D338F00B7C072 /* AppDelegate.swift */,
 				E7FC3ABB206D338F00B7C072 /* Assets.xcassets */,
 				E7FC3AC0206D338F00B7C072 /* Info.plist */,
 				E7FC3ABD206D338F00B7C072 /* LaunchScreen.storyboard */,
-				E7FC3AB8206D338F00B7C072 /* Main.storyboard */,
-				E7FC3AB6206D338F00B7C072 /* ViewController.swift */,
 			);
 			path = "HakoBus-v2";
 			sourceTree = "<group>";
@@ -365,7 +373,7 @@
 			files = (
 				E7FC3ABF206D338F00B7C072 /* LaunchScreen.storyboard in Resources */,
 				E7FC3ABC206D338F00B7C072 /* Assets.xcassets in Resources */,
-				E7FC3ABA206D338F00B7C072 /* Main.storyboard in Resources */,
+				E78FE677206E2FA900B20707 /* SearchViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,9 +445,9 @@
 				E7FC3AF4206D5EFC00B7C072 /* CheckSignpoleResponse.swift in Sources */,
 				E7FC3AF6206D712400B7C072 /* DecodableDataParser.swift in Sources */,
 				E78FE66D206E2C5E00B20707 /* UIViewController.swift in Sources */,
-				E7FC3AB7206D338F00B7C072 /* ViewController.swift in Sources */,
 				E7881BB7206D948F007EC259 /* BusRequest.swift in Sources */,
 				E7FC3AB5206D338F00B7C072 /* AppDelegate.swift in Sources */,
+				E78FE675206E2F9C00B20707 /* SearchViewController.swift in Sources */,
 				E7881BB9206D9660007EC259 /* GetBusApproachRequest.swift in Sources */,
 				E78FE66F206E2C7A00B20707 /* Session.swift in Sources */,
 				E7881BBF206D982C007EC259 /* BusLocation.swift in Sources */,
@@ -482,15 +490,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E7FC3AB8206D338F00B7C072 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E7FC3AB9206D338F00B7C072 /* Base */,
-			);
-			name = Main.storyboard;
-			path = .;
-			sourceTree = "<group>";
-		};
 		E7FC3ABD206D338F00B7C072 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
