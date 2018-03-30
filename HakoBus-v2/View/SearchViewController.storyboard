@@ -47,8 +47,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHL-Qk-o32">
                                                         <rect key="frame" x="76" y="0.0" width="299" height="50"/>
                                                         <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="亀田支所前">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="タップして入力">
+                                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     </button>
                                                 </subviews>
@@ -88,8 +88,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vlb-hy-2Wc">
                                                         <rect key="frame" x="76" y="0.0" width="299" height="50"/>
                                                         <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="はこだて未来大学">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="タップして入力">
+                                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     </button>
                                                 </subviews>
@@ -167,6 +167,12 @@
                         <viewLayoutGuide key="safeArea" id="Aw6-Ws-TUt"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="departureButton" destination="xWo-sE-UTl" id="0WG-GT-yev"/>
+                        <outlet property="departureLabelButton" destination="PHL-Qk-o32" id="pRQ-fX-ui4"/>
+                        <outlet property="destinationButton" destination="kfI-Mk-3QE" id="7Pj-FB-h2W"/>
+                        <outlet property="destinationLabelButton" destination="Vlb-hy-2Wc" id="B4I-Pf-rCq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kN-2g-Ig4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,11 +7,47 @@
 //
 
 import UIKit
+import RxSwift
+import Swinject
+import APIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let container = Container { container in
+        // Model
+        container.register(DisposeBag.self) { _ in DisposeBag() }
+        // DataSource
+        container.register(InputBusStopTableViewDataSource.self) { r in
+            let inputBusStopTableViewDataSource = InputBusStopTableViewDataSource()
+            inputBusStopTableViewDataSource.viewModel = r.resolve(SearchViewModel.self)
+            return inputBusStopTableViewDataSource
+        }
+        // ViewModel
+        container.register(SearchViewModel.self) { r in
+            let disposeBag = r.resolve(DisposeBag.self) ?? DisposeBag()
+            let _busStops = Session.rx_response(request: GetBusStopsRequest(searchText: ""))
+            let searchViewModel = SearchViewModel(_busStops: _busStops, disposeBag: disposeBag)
+            return searchViewModel
+        }
+        // View
+        container.register(SearchViewController.self) { r in
+            let controller = SearchViewController.create()
+            controller.disposeBag = r.resolve(DisposeBag.self)
+            controller.viewModel = r.resolve(SearchViewModel.self)
+            controller.inputBusStopViewController = r.resolve(InputBusStopViewController.self)
+            return controller
+        }
+        container.register(InputBusStopViewController.self) { r in
+            let controller = InputBusStopViewController.create()
+            controller.disposeBag = r.resolve(DisposeBag.self)
+            controller.viewModel = r.resolve(SearchViewModel.self)
+            controller.dataSource = r.resolve(InputBusStopTableViewDataSource.self)
+            return controller
+        }
+    }
+
     let generateNavigationController = { (rootViewController: UIViewController) -> UINavigationController in
         var navigationController: UINavigationController
         navigationController =  UINavigationController(rootViewController: rootViewController)
@@ -38,7 +74,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        let searchViewController = SearchViewController.create()
+        guard let searchViewController = container.resolve(SearchViewController.self) else {
+            return true
+        }
+
         let searchNavigationController = self.generateNavigationController(searchViewController)
 
         searchNavigationController.tabBarItem = UITabBarItem(title: "検索", image: UIImage(named: "busIcon"), tag: 1)
