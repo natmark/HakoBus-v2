@@ -20,6 +20,8 @@
 		E7881BBD206D9745007EC259 /* GetBusStopsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7881BBC206D9745007EC259 /* GetBusStopsRequest.swift */; };
 		E7881BBF206D982C007EC259 /* BusLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7881BBE206D982C007EC259 /* BusLocation.swift */; };
 		E78FE66A206E2ACB00B20707 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78FE669206E2ACB00B20707 /* Swinject.framework */; };
+		E78FE66D206E2C5E00B20707 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FE66C206E2C5E00B20707 /* UIViewController.swift */; };
+		E78FE66F206E2C7A00B20707 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FE66E206E2C7900B20707 /* Session.swift */; };
 		E7FC3AB5206D338F00B7C072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FC3AB4206D338F00B7C072 /* AppDelegate.swift */; };
 		E7FC3AB7206D338F00B7C072 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FC3AB6206D338F00B7C072 /* ViewController.swift */; };
 		E7FC3ABA206D338F00B7C072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7FC3AB8206D338F00B7C072 /* Main.storyboard */; };
@@ -68,6 +70,8 @@
 		E7881BBC206D9745007EC259 /* GetBusStopsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBusStopsRequest.swift; sourceTree = "<group>"; };
 		E7881BBE206D982C007EC259 /* BusLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusLocation.swift; sourceTree = "<group>"; };
 		E78FE669206E2ACB00B20707 /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
+		E78FE66C206E2C5E00B20707 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		E78FE66E206E2C7900B20707 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		E7FC3AB1206D338F00B7C072 /* HakoBus-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HakoBus-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7FC3AB4206D338F00B7C072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7FC3AB6206D338F00B7C072 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -131,22 +135,31 @@
 			isa = PBXGroup;
 			children = (
 				E70231C8206D9F2800C8D4F1 /* CheckSignpole-亀田支所前-はこだて未来大学.json */,
-				E70231C9206D9F2800C8D4F1 /* CheckSignpole-空港-はこだて未来大学.json */,
 				E7FC3AFD206D7B3100B7C072 /* CheckSignpole-亀田支所前-亀田支所前.json */,
-				E7881BAF206D8804007EC259 /* CheckSignpole.json */,
 				E7881BB1206D88FF007EC259 /* CheckSignpole-亀田支所前-未来大.json */,
+				E70231C9206D9F2800C8D4F1 /* CheckSignpole-空港-はこだて未来大学.json */,
+				E7881BAF206D8804007EC259 /* CheckSignpole.json */,
 			);
 			path = CheckSignpole;
+			sourceTree = "<group>";
+		};
+		E78FE66B206E2C4D00B20707 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E78FE66E206E2C7900B20707 /* Session.swift */,
+				E78FE66C206E2C5E00B20707 /* UIViewController.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		E7FC3AA8206D338F00B7C072 = {
 			isa = PBXGroup;
 			children = (
+				E7FC3AE4206D3F6D00B7C072 /* Frameworks */,
 				E7FC3AB3206D338F00B7C072 /* HakoBus-v2 */,
 				E7FC3AC8206D339000B7C072 /* HakoBus-v2Tests */,
 				E7FC3AD3206D339000B7C072 /* HakoBus-v2UITests */,
 				E7FC3AB2206D338F00B7C072 /* Products */,
-				E7FC3AE4206D3F6D00B7C072 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,13 +176,14 @@
 		E7FC3AB3206D338F00B7C072 /* HakoBus-v2 */ = {
 			isa = PBXGroup;
 			children = (
-				E7FC3AB4206D338F00B7C072 /* AppDelegate.swift */,
-				E7FC3AB6206D338F00B7C072 /* ViewController.swift */,
 				E7FC3AEF206D5C7E00B7C072 /* APIClient */,
-				E7FC3AB8206D338F00B7C072 /* Main.storyboard */,
+				E78FE66B206E2C4D00B20707 /* Extension */,
+				E7FC3AB4206D338F00B7C072 /* AppDelegate.swift */,
 				E7FC3ABB206D338F00B7C072 /* Assets.xcassets */,
-				E7FC3ABD206D338F00B7C072 /* LaunchScreen.storyboard */,
 				E7FC3AC0206D338F00B7C072 /* Info.plist */,
+				E7FC3ABD206D338F00B7C072 /* LaunchScreen.storyboard */,
+				E7FC3AB8206D338F00B7C072 /* Main.storyboard */,
+				E7FC3AB6206D338F00B7C072 /* ViewController.swift */,
 			);
 			path = "HakoBus-v2";
 			sourceTree = "<group>";
@@ -178,9 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				E7FC3AFC206D7AFB00B7C072 /* JSONMock */,
+				E7FC3AF9206D79E400B7C072 /* CheckSignpoleRequestTests.swift */,
 				E7FC3AC9206D339000B7C072 /* HakoBus_v2Tests.swift */,
 				E7881BAB206D8351007EC259 /* HttpHelper.swift */,
-				E7FC3AF9206D79E400B7C072 /* CheckSignpoleRequestTests.swift */,
 				E7FC3ACB206D339000B7C072 /* Info.plist */,
 			);
 			path = "HakoBus-v2Tests";
@@ -213,11 +227,11 @@
 			isa = PBXGroup;
 			children = (
 				E7FC3AF2206D5EBF00B7C072 /* Model */,
+				E7881BB6206D948F007EC259 /* BusRequest.swift */,
 				E7FC3AF0206D5DAD00B7C072 /* CheckSignpoleRequest.swift */,
+				E7FC3AF5206D712300B7C072 /* DecodableDataParser.swift */,
 				E7881BB8206D9660007EC259 /* GetBusApproachRequest.swift */,
 				E7881BBC206D9745007EC259 /* GetBusStopsRequest.swift */,
-				E7881BB6206D948F007EC259 /* BusRequest.swift */,
-				E7FC3AF5206D712300B7C072 /* DecodableDataParser.swift */,
 			);
 			path = APIClient;
 			sourceTree = "<group>";
@@ -225,9 +239,9 @@
 		E7FC3AF2206D5EBF00B7C072 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E7FC3AF3206D5EFC00B7C072 /* CheckSignpoleResponse.swift */,
-				E7881BBA206D9705007EC259 /* BusStop.swift */,
 				E7881BBE206D982C007EC259 /* BusLocation.swift */,
+				E7881BBA206D9705007EC259 /* BusStop.swift */,
+				E7FC3AF3206D5EFC00B7C072 /* CheckSignpoleResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -422,10 +436,12 @@
 				E7881BBB206D9705007EC259 /* BusStop.swift in Sources */,
 				E7FC3AF4206D5EFC00B7C072 /* CheckSignpoleResponse.swift in Sources */,
 				E7FC3AF6206D712400B7C072 /* DecodableDataParser.swift in Sources */,
+				E78FE66D206E2C5E00B20707 /* UIViewController.swift in Sources */,
 				E7FC3AB7206D338F00B7C072 /* ViewController.swift in Sources */,
 				E7881BB7206D948F007EC259 /* BusRequest.swift in Sources */,
 				E7FC3AB5206D338F00B7C072 /* AppDelegate.swift in Sources */,
 				E7881BB9206D9660007EC259 /* GetBusApproachRequest.swift in Sources */,
+				E78FE66F206E2C7A00B20707 /* Session.swift in Sources */,
 				E7881BBF206D982C007EC259 /* BusLocation.swift in Sources */,
 				E7FC3AF1206D5DAD00B7C072 /* CheckSignpoleRequest.swift in Sources */,
 				E7881BBD206D9745007EC259 /* GetBusStopsRequest.swift in Sources */,
@@ -472,6 +488,7 @@
 				E7FC3AB9206D338F00B7C072 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		E7FC3ABD206D338F00B7C072 /* LaunchScreen.storyboard */ = {
@@ -480,6 +497,7 @@
 				E7FC3ABE206D338F00B7C072 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
