@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -65,8 +66,23 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezA-tl-Njl">
                                         <rect key="frame" x="0.0" y="66" width="375" height="64"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfE-XR-FBi">
+                                                <rect key="frame" x="319" y="8" width="48" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="SfE-XR-FBi" secondAttribute="height" multiplier="1:1" id="CIU-Yi-rgT"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <state key="normal" title="↑↓">
+                                                    <color key="titleColor" red="0.63218539949999997" green="0.078770749269999996" blue="0.0079393256460000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="1Lf-Hz-ZIm"/>
+                                            <constraint firstItem="SfE-XR-FBi" firstAttribute="top" secondItem="ezA-tl-Njl" secondAttribute="top" constant="8" id="FMA-2n-JjN"/>
+                                            <constraint firstAttribute="trailing" secondItem="SfE-XR-FBi" secondAttribute="trailing" constant="8" id="mhe-T9-wOT"/>
+                                            <constraint firstAttribute="bottom" secondItem="SfE-XR-FBi" secondAttribute="bottom" constant="8" id="xeH-56-8Zc"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Co-oZ-H1h">
@@ -172,6 +188,7 @@
                         <outlet property="departureLabelButton" destination="PHL-Qk-o32" id="pRQ-fX-ui4"/>
                         <outlet property="destinationButton" destination="kfI-Mk-3QE" id="7Pj-FB-h2W"/>
                         <outlet property="destinationLabelButton" destination="Vlb-hy-2Wc" id="B4I-Pf-rCq"/>
+                        <outlet property="switchBusStopButton" destination="SfE-XR-FBi" id="3Ga-qf-7w8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kN-2g-Ig4" userLabel="First Responder" sceneMemberID="firstResponder"/>

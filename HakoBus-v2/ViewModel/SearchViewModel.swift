@@ -12,18 +12,19 @@ import RxCocoa
 
 final class SearchViewModel {
     let _selectedIndexPath = PublishSubject<IndexPath>()
-    var from: Observable<BusStop> {
+    let _switchBusStop = PublishSubject<Void>()
+    var from: Observable<BusStop?> {
         return _from.asObservable()
     }
 
-    var to: Observable<BusStop> {
+    var to: Observable<BusStop?> {
         return _to.asObservable()
     }
 
     private let disposeBag: DisposeBag
     private let _busStops: Observable<[BusStop]>
-    private(set) var _from = PublishSubject<BusStop>()
-    private(set) var _to = PublishSubject<BusStop>()
+    private(set) var _from = Variable<BusStop?>(nil)
+    private(set) var _to = Variable<BusStop?>(nil)
     private(set) var selectedCategory = Variable<InputBusStopCategory>(.departure)
     private(set) var busStops = Variable<[BusStop]>([])
     private(set) var searchResult = Variable<[BusStop]>([])
@@ -37,6 +38,7 @@ final class SearchViewModel {
     private var bindBusStops: AnyObserver<[BusStop]> {
         return Binder(self) { me, busStops in
             me.busStops.value = busStops
+            me.searchResult.value = busStops
             }.asObserver()
     }
 
@@ -54,10 +56,18 @@ final class SearchViewModel {
         return Binder(self) { me, indexPath in
             switch me.selectedCategory.value {
             case .departure:
-                me._from.onNext(me.searchResult.value[indexPath.row])
+                me._from.value = me.searchResult.value[indexPath.row]
             case .destination:
-                me._to.onNext(me.searchResult.value[indexPath.row])
+                me._to.value = me.searchResult.value[indexPath.row]
             }
+            }.asObserver()
+    }
+
+    private var switchBusStop: AnyObserver<Void> {
+        return Binder(self) { me, _  in
+            let busStop = me._from.value
+            me._from.value = me._to.value
+            me._to.value = busStop
             }.asObserver()
     }
 
@@ -75,6 +85,10 @@ final class SearchViewModel {
 
         _selectedIndexPath.asObservable()
             .bind(to: selectBusStop)
+            .disposed(by: disposeBag)
+
+        _switchBusStop.asObservable()
+            .bind(to: switchBusStop)
             .disposed(by: disposeBag)
     }
 }

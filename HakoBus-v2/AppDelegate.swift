@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // ViewModel
         container.register(SearchViewModel.self) { r in
             let disposeBag = r.resolve(DisposeBag.self) ?? DisposeBag()
-            let _busStops = Session.rx_response(request: GetBusStopsRequest(searchText: ""))
+            let _busStops = Session.rx_response(request: GetBusStopsRequest(searchText: "")).single()
             let searchViewModel = SearchViewModel(_busStops: _busStops, disposeBag: disposeBag)
             return searchViewModel
         }

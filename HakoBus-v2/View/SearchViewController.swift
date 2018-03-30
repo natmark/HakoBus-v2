@@ -15,6 +15,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var destinationButton: UIButton!
     @IBOutlet weak var departureLabelButton: UIButton!
     @IBOutlet weak var destinationLabelButton: UIButton!
+    @IBOutlet weak var switchBusStopButton: UIButton!
 
     var disposeBag: DisposeBag!
     var viewModel: SearchViewModel!
@@ -35,6 +36,10 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        switchBusStopButton.rx.tap.asObservable()
+            .bind(to: viewModel._switchBusStop)
+            .disposed(by: disposeBag)
 
         Observable.merge(departureButton.rx.tap.asObservable(),
                          departureLabelButton.rx.tap.asObservable())
@@ -61,32 +66,32 @@ class SearchViewController: UIViewController {
             .disposed(by: disposeBag)
 
         viewModel.from
-            .flatMap { value -> Observable<String> in
-                Observable.just(value.name)
-            }.bind(to: departureLabelButton.rx.title())
-            .disposed(by: disposeBag)
-
-        viewModel.from
-            .subscribe(onNext: { [weak self] _ in
+            .subscribe(onNext: { [weak self] busStop in
                 guard let `self` = self else {
                     return
                 }
-                self.departureLabelButton.setTitleColor(.black, for: .normal)
+                if busStop != nil {
+                    self.departureLabelButton.setTitleColor(.black, for: .normal)
+                    self.departureLabelButton.setTitle(busStop?.name, for: .normal)
+                } else {
+                    self.departureLabelButton.setTitleColor(.lightGray, for: .normal)
+                    self.departureLabelButton.setTitle("タップして入力", for: .normal)
+                }
             })
             .disposed(by: disposeBag)
 
         viewModel.to
-            .flatMap { value -> Observable<String> in
-                Observable.just(value.name)
-            }.bind(to: destinationLabelButton.rx.title())
-            .disposed(by: disposeBag)
-
-        viewModel.to
-            .subscribe(onNext: { [weak self] _ in
+            .subscribe(onNext: { [weak self] busStop in
                 guard let `self` = self else {
                     return
                 }
-                self.destinationLabelButton.setTitleColor(.black, for: .normal)
+                if busStop != nil {
+                    self.destinationLabelButton.setTitleColor(.black, for: .normal)
+                    self.destinationLabelButton.setTitle(busStop?.name, for: .normal)
+                } else {
+                    self.destinationLabelButton.setTitleColor(.lightGray, for: .normal)
+                    self.destinationLabelButton.setTitle("タップして入力", for: .normal)
+                }
             })
             .disposed(by: disposeBag)
     }
