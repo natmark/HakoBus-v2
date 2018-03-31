@@ -9,8 +9,10 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SwinjectStoryboard
 
 class SearchViewController: UIViewController {
+    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var departureButton: UIButton!
     @IBOutlet weak var destinationButton: UIButton!
     @IBOutlet weak var departureLabelButton: UIButton!
@@ -18,8 +20,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var switchBusStopButton: UIButton!
 
     var disposeBag: DisposeBag!
-    var viewModel: SearchViewModel!
-    var inputBusStopViewController: InputBusStopViewController!
+    var viewModel: SearchViewModelType!
 
     let generateNavigationController = { (rootViewController: UIViewController) -> UINavigationController in
         var navigationController: UINavigationController
@@ -34,11 +35,49 @@ class SearchViewController: UIViewController {
         return navigationController
     }
 
+    let generateAlertViewController = { (message: String) -> UIAlertController in
+        let alert = UIAlertController(title: "", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let cancelAction: UIAlertAction = UIAlertAction(title: "閉じる", style: UIAlertActionStyle.cancel, handler: nil)
+        alert.addAction(cancelAction)
+
+        return alert
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.largeTitleDisplayMode = .always
+
         switchBusStopButton.rx.tap.asObservable()
-            .bind(to: viewModel._switchBusStop)
+            .bind(to: viewModel.inputs.switch)
+            .disposed(by: disposeBag)
+
+        searchButton.rx.tap.asObservable()
+            .subscribe(onNext: { [weak self] in
+                guard let `self` = self else {
+                    return
+                }
+
+                guard let from = self.viewModel.outputs.from.value else {
+                    self.present(self.generateAlertViewController("乗車バス停を入力してください"), animated: true, completion: nil)
+                    return
+                }
+
+                guard let to = self.viewModel.outputs.to.value else {
+                    self.present(self.generateAlertViewController("降車バス停を入力してください"), animated: true, completion: nil)
+                    return
+                }
+
+                if from.stopcode == to.stopcode {
+                    self.present(self.generateAlertViewController("乗車バス停と降車バス停が同じです"), animated: true, completion: nil)
+                } else {
+                    let viewController = BusLocationViewController.create()
+                    viewController.from = from
+                    viewController.to = to
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                }
+
+            })
             .disposed(by: disposeBag)
 
         Observable.merge(departureButton.rx.tap.asObservable(),
@@ -47,8 +86,9 @@ class SearchViewController: UIViewController {
                 guard let `self` = self else {
                     return
                 }
-                self.viewModel.selectedCategory.value = .departure
-                let navigationController = self.generateNavigationController(self.inputBusStopViewController)
+                self.viewModel.inputs.selectedCategory.onNext(.departure)
+                let viewController = InputBusStopViewController.create()
+                let navigationController = self.generateNavigationController(viewController)
                 self.present(navigationController, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
@@ -59,13 +99,14 @@ class SearchViewController: UIViewController {
                 guard let `self` = self else {
                     return
                 }
-                self.viewModel.selectedCategory.value = .destination
-                let navigationController = self.generateNavigationController(self.inputBusStopViewController)
+                self.viewModel.inputs.selectedCategory.onNext(.destination)
+                let viewController = InputBusStopViewController.create()
+                let navigationController = self.generateNavigationController(viewController)
                 self.present(navigationController, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
 
-        viewModel.from
+        viewModel.outputs.from.asObservable()
             .subscribe(onNext: { [weak self] busStop in
                 guard let `self` = self else {
                     return
@@ -80,7 +121,7 @@ class SearchViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
-        viewModel.to
+        viewModel.outputs.to.asObservable()
             .subscribe(onNext: { [weak self] busStop in
                 guard let `self` = self else {
                     return

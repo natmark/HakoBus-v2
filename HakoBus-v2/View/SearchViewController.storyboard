@@ -97,6 +97,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="76" id="ccX-aU-AM5"/>
                                                         </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <state key="normal" title="到着">
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
@@ -188,6 +189,7 @@
                         <outlet property="departureLabelButton" destination="PHL-Qk-o32" id="pRQ-fX-ui4"/>
                         <outlet property="destinationButton" destination="kfI-Mk-3QE" id="7Pj-FB-h2W"/>
                         <outlet property="destinationLabelButton" destination="Vlb-hy-2Wc" id="B4I-Pf-rCq"/>
+                        <outlet property="searchButton" destination="gXL-tv-Mnv" id="Pbd-fg-Cny"/>
                         <outlet property="switchBusStopButton" destination="SfE-XR-FBi" id="3Ga-qf-7w8"/>
                     </connections>
                 </viewController>

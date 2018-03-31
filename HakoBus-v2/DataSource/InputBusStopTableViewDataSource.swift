@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class InputBusStopTableViewDataSource: NSObject {
-    public var viewModel: SearchViewModel!
+    public var viewModel: SearchViewModelType!
 
     override init() {}
 
@@ -22,12 +22,12 @@ class InputBusStopTableViewDataSource: NSObject {
 
 extension InputBusStopTableViewDataSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.searchResult.value.count
+        return viewModel.outputs.searchResult.value.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(UITableViewCell.self, for: indexPath)
-        cell.textLabel?.text = viewModel.searchResult.value[indexPath.row].name
+        cell.textLabel?.text = viewModel.outputs.searchResult.value[indexPath.row].name
         return cell
     }
 }

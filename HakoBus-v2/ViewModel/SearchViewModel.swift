@@ -7,37 +7,56 @@
 //
 
 import Foundation
+import APIKit
 import RxSwift
 import RxCocoa
 
-final class SearchViewModel {
-    let _selectedIndexPath = PublishSubject<IndexPath>()
-    let _switchBusStop = PublishSubject<Void>()
-    var from: Observable<BusStop?> {
-        return _from.asObservable()
-    }
+protocol SearchViewModelInputs {
+    var select: PublishSubject<IndexPath> { get }
+    var `switch`: PublishSubject<Void> { get }
+    var busStops: PublishSubject<[BusStop]> { get }
+    var selectedCategory: PublishSubject<InputBusStopCategory> { get }
+    var searchText: PublishSubject<String> { get }
+}
 
-    var to: Observable<BusStop?> {
-        return _to.asObservable()
-    }
+protocol SearchViewModelOutputs {
+    var searchResult: Variable<[BusStop]> { get }
+    var category: Variable<InputBusStopCategory> { get }
+    var from: Variable<BusStop?> { get }
+    var to: Variable<BusStop?> { get }
+}
+
+protocol SearchViewModelType {
+    var inputs: SearchViewModelInputs { get }
+    var outputs: SearchViewModelOutputs { get }
+}
+
+enum InputBusStopCategory {
+    case departure
+    case destination
+}
+
+final class SearchViewModel: SearchViewModelType, SearchViewModelInputs, SearchViewModelOutputs {
+    var inputs: SearchViewModelInputs { return self }
+    private(set) var select = PublishSubject<IndexPath>()
+    private(set) var `switch` = PublishSubject<Void>()
+    private(set) var busStops = PublishSubject<[BusStop]>()
+    private(set) var selectedCategory = PublishSubject<InputBusStopCategory>()
+    private(set) var searchText = PublishSubject<String>()
+
+    var outputs: SearchViewModelOutputs { return self }
+    private(set) var searchResult = Variable<[BusStop]>([])
+    private(set) var from = Variable<BusStop?>(nil)
+    private(set) var to = Variable<BusStop?>(nil)
+    private(set) var category = Variable<InputBusStopCategory>(.departure)
 
     private let disposeBag: DisposeBag
-    private let _busStops: Observable<[BusStop]>
-    private(set) var _from = Variable<BusStop?>(nil)
-    private(set) var _to = Variable<BusStop?>(nil)
-    private(set) var selectedCategory = Variable<InputBusStopCategory>(.departure)
-    private(set) var busStops = Variable<[BusStop]>([])
-    private(set) var searchResult = Variable<[BusStop]>([])
-    private(set) var searchText = Variable<String>("")
-
-    enum InputBusStopCategory {
-        case departure
-        case destination
-    }
+    private let _busStops = Variable<[BusStop]>([])
+    private let _searchText = Variable<String>("")
 
     private var bindBusStops: AnyObserver<[BusStop]> {
         return Binder(self) { me, busStops in
-            me.busStops.value = busStops
+            me._busStops.value = busStops
             me.searchResult.value = busStops
             }.asObserver()
     }
@@ -45,50 +64,60 @@ final class SearchViewModel {
     private var filteringBusStops: AnyObserver<String> {
         return Binder(self) { me, text in
             if text != "" {
-                me.searchResult.value = me.busStops.value.filter { $0.name.contains(text)}
+                me.searchResult.value = me._busStops.value.filter { $0.name.contains(text)}
             } else {
-                me.searchResult.value = me.busStops.value
+                me.searchResult.value = me._busStops.value
             }
         }.asObserver()
     }
 
     private var selectBusStop: AnyObserver<IndexPath> {
         return Binder(self) { me, indexPath in
-            switch me.selectedCategory.value {
+            switch me.category.value {
             case .departure:
-                me._from.value = me.searchResult.value[indexPath.row]
+                me.from.value = me.searchResult.value[indexPath.row]
             case .destination:
-                me._to.value = me.searchResult.value[indexPath.row]
+                me.to.value = me.searchResult.value[indexPath.row]
             }
             }.asObserver()
     }
 
     private var switchBusStop: AnyObserver<Void> {
         return Binder(self) { me, _  in
-            let busStop = me._from.value
-            me._from.value = me._to.value
-            me._to.value = busStop
+            swap(&me.from.value, &me.to.value)
             }.asObserver()
     }
 
-    init(_busStops: Observable<[BusStop]>, disposeBag: DisposeBag) {
+    init(disposeBag: DisposeBag) {
         self.disposeBag = disposeBag
-        self._busStops = _busStops
 
         searchText.asObservable()
             .bind(to: filteringBusStops)
             .disposed(by: disposeBag)
 
-        _busStops
-            .bind(to: bindBusStops)
-            .disposed(by: disposeBag)
-
-        _selectedIndexPath.asObservable()
+        select.asObserver()
             .bind(to: selectBusStop)
             .disposed(by: disposeBag)
 
-        _switchBusStop.asObservable()
+        `switch`.asObservable()
             .bind(to: switchBusStop)
             .disposed(by: disposeBag)
+
+        busStops.asObservable()
+            .bind(to: bindBusStops)
+            .disposed(by: disposeBag)
+
+        searchText.asObservable()
+            .bind(to: _searchText)
+            .disposed(by: disposeBag)
+
+        selectedCategory.asObservable()
+            .bind(to: category)
+            .disposed(by: disposeBag)
+
+        Session.rx_response(request: GetBusStopsRequest(searchText: "")).single()
+            .bind(to: busStops)
+            .disposed(by: disposeBag)
+
     }
 }

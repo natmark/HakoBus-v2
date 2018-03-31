@@ -29,6 +29,14 @@
 		E78FE685206E3E3100B20707 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FE684206E3E3100B20707 /* SearchViewModel.swift */; };
 		E78FE687206E40BB00B20707 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FE686206E40BB00B20707 /* UITableView.swift */; };
 		E78FE68A206E51B000B20707 /* InputBusStopViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E78FE689206E51B000B20707 /* InputBusStopViewController.storyboard */; };
+		E78FE68E206F698400B20707 /* BusLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FE68D206F698400B20707 /* BusLocationViewController.swift */; };
+		E78FE690206F699200B20707 /* BusLocationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E78FE68F206F699200B20707 /* BusLocationViewController.storyboard */; };
+		E78FE692206F69A500B20707 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FE691206F69A500B20707 /* LocationViewModel.swift */; };
+		E78FE694206F69BB00B20707 /* BusLocationTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FE693206F69BB00B20707 /* BusLocationTableViewDataSource.swift */; };
+		E78FE696206F6D6500B20707 /* SwinjectStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78FE695206F6D6500B20707 /* SwinjectStoryboard.framework */; };
+		E78FE698206F726700B20707 /* SwinjectStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FE697206F726700B20707 /* SwinjectStoryboard.swift */; };
+		E78FE69A206F80AC00B20707 /* BusNavigationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FE699206F80AC00B20707 /* BusNavigationTableViewCell.swift */; };
+		E78FE69F206FA06500B20707 /* BusApproachModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FE69E206FA06500B20707 /* BusApproachModel.swift */; };
 		E7FC3AB5206D338F00B7C072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FC3AB4206D338F00B7C072 /* AppDelegate.swift */; };
 		E7FC3ABC206D338F00B7C072 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7FC3ABB206D338F00B7C072 /* Assets.xcassets */; };
 		E7FC3ABF206D338F00B7C072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7FC3ABD206D338F00B7C072 /* LaunchScreen.storyboard */; };
@@ -84,6 +92,14 @@
 		E78FE684206E3E3100B20707 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		E78FE686206E40BB00B20707 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		E78FE689206E51B000B20707 /* InputBusStopViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputBusStopViewController.storyboard; sourceTree = "<group>"; };
+		E78FE68D206F698400B20707 /* BusLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusLocationViewController.swift; sourceTree = "<group>"; };
+		E78FE68F206F699200B20707 /* BusLocationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusLocationViewController.storyboard; sourceTree = "<group>"; };
+		E78FE691206F69A500B20707 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		E78FE693206F69BB00B20707 /* BusLocationTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusLocationTableViewDataSource.swift; sourceTree = "<group>"; };
+		E78FE695206F6D6500B20707 /* SwinjectStoryboard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwinjectStoryboard.framework; path = Carthage/Build/iOS/SwinjectStoryboard.framework; sourceTree = "<group>"; };
+		E78FE697206F726700B20707 /* SwinjectStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectStoryboard.swift; sourceTree = "<group>"; };
+		E78FE699206F80AC00B20707 /* BusNavigationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusNavigationTableViewCell.swift; sourceTree = "<group>"; };
+		E78FE69E206FA06500B20707 /* BusApproachModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusApproachModel.swift; sourceTree = "<group>"; };
 		E7FC3AB1206D338F00B7C072 /* HakoBus-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HakoBus-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7FC3AB4206D338F00B7C072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7FC3ABB206D338F00B7C072 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E78FE696206F6D6500B20707 /* SwinjectStoryboard.framework in Frameworks */,
 				E78FE66A206E2ACB00B20707 /* Swinject.framework in Frameworks */,
 				E70231CC206DAC0B00C8D4F1 /* OHHTTPStubs.framework in Frameworks */,
 				E7FC3AEA206D3F6E00B7C072 /* RxCocoa.framework in Frameworks */,
@@ -157,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				E78FE66E206E2C7900B20707 /* Session.swift */,
+				E78FE697206F726700B20707 /* SwinjectStoryboard.swift */,
 				E78FE686206E40BB00B20707 /* UITableView.swift */,
 				E78FE66C206E2C5E00B20707 /* UIViewController.swift */,
 			);
@@ -166,10 +184,13 @@
 		E78FE673206E2EF900B20707 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E78FE674206E2F9C00B20707 /* SearchViewController.swift */,
-				E78FE676206E2FA900B20707 /* SearchViewController.storyboard */,
+				E78FE69C206F9ABB00B20707 /* Cell */,
+				E78FE68F206F699200B20707 /* BusLocationViewController.storyboard */,
+				E78FE68D206F698400B20707 /* BusLocationViewController.swift */,
 				E78FE67B206E37DD00B20707 /* InputBusStopController.swift */,
 				E78FE689206E51B000B20707 /* InputBusStopViewController.storyboard */,
+				E78FE676206E2FA900B20707 /* SearchViewController.storyboard */,
+				E78FE674206E2F9C00B20707 /* SearchViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -177,6 +198,7 @@
 		E78FE680206E393D00B20707 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				E78FE693206F69BB00B20707 /* BusLocationTableViewDataSource.swift */,
 				E78FE681206E395400B20707 /* InputBusStopTableViewDataSource.swift */,
 			);
 			path = DataSource;
@@ -185,9 +207,26 @@
 		E78FE683206E3D4F00B20707 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E78FE691206F69A500B20707 /* LocationViewModel.swift */,
 				E78FE684206E3E3100B20707 /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E78FE69C206F9ABB00B20707 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E78FE699206F80AC00B20707 /* BusNavigationTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E78FE69D206F9FC700B20707 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E78FE69E206FA06500B20707 /* BusApproachModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E7FC3AA8206D338F00B7C072 = {
@@ -214,11 +253,12 @@
 		E7FC3AB3206D338F00B7C072 /* HakoBus-v2 */ = {
 			isa = PBXGroup;
 			children = (
-				E78FE683206E3D4F00B20707 /* ViewModel */,
-				E78FE680206E393D00B20707 /* DataSource */,
-				E78FE673206E2EF900B20707 /* View */,
 				E7FC3AEF206D5C7E00B7C072 /* APIClient */,
+				E78FE680206E393D00B20707 /* DataSource */,
 				E78FE66B206E2C4D00B20707 /* Extension */,
+				E78FE69D206F9FC700B20707 /* Model */,
+				E78FE673206E2EF900B20707 /* View */,
+				E78FE683206E3D4F00B20707 /* ViewModel */,
 				E7FC3AB4206D338F00B7C072 /* AppDelegate.swift */,
 				E7FC3ABB206D338F00B7C072 /* Assets.xcassets */,
 				E7FC3AC0206D338F00B7C072 /* Info.plist */,
@@ -251,6 +291,7 @@
 		E7FC3AE4206D3F6D00B7C072 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E78FE695206F6D6500B20707 /* SwinjectStoryboard.framework */,
 				E78FE669206E2ACB00B20707 /* Swinject.framework */,
 				E7FC3AF7206D798400B7C072 /* OHHTTPStubs.framework */,
 				E7FC3AE7206D3F6E00B7C072 /* APIKit.framework */,
@@ -402,6 +443,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E78FE690206F699200B20707 /* BusLocationViewController.storyboard in Resources */,
 				E7FC3ABF206D338F00B7C072 /* LaunchScreen.storyboard in Resources */,
 				E7FC3ABC206D338F00B7C072 /* Assets.xcassets in Resources */,
 				E78FE68A206E51B000B20707 /* InputBusStopViewController.storyboard in Resources */,
@@ -458,6 +500,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/APIKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwinjectStoryboard.framework",
 			);
 			name = "[Cartfile] Run Script";
 			outputPaths = (
@@ -473,13 +516,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E78FE68E206F698400B20707 /* BusLocationViewController.swift in Sources */,
 				E7881BBB206D9705007EC259 /* BusStop.swift in Sources */,
 				E7FC3AF4206D5EFC00B7C072 /* CheckSignpoleResponse.swift in Sources */,
+				E78FE698206F726700B20707 /* SwinjectStoryboard.swift in Sources */,
 				E7FC3AF6206D712400B7C072 /* DecodableDataParser.swift in Sources */,
+				E78FE69A206F80AC00B20707 /* BusNavigationTableViewCell.swift in Sources */,
 				E78FE66D206E2C5E00B20707 /* UIViewController.swift in Sources */,
 				E7881BB7206D948F007EC259 /* BusRequest.swift in Sources */,
+				E78FE69F206FA06500B20707 /* BusApproachModel.swift in Sources */,
 				E7FC3AB5206D338F00B7C072 /* AppDelegate.swift in Sources */,
+				E78FE692206F69A500B20707 /* LocationViewModel.swift in Sources */,
 				E78FE685206E3E3100B20707 /* SearchViewModel.swift in Sources */,
+				E78FE694206F69BB00B20707 /* BusLocationTableViewDataSource.swift in Sources */,
 				E78FE675206E2F9C00B20707 /* SearchViewController.swift in Sources */,
 				E7881BB9206D9660007EC259 /* GetBusApproachRequest.swift in Sources */,
 				E78FE682206E395400B20707 /* InputBusStopTableViewDataSource.swift in Sources */,

@@ -17,7 +17,7 @@ class InputBusStopViewController: UIViewController, UISearchResultsUpdating {
 
     var dataSource: InputBusStopTableViewDataSource!
     var disposeBag: DisposeBag!
-    var viewModel: SearchViewModel!
+    var viewModel: SearchViewModelType!
 
     private let searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -27,7 +27,7 @@ class InputBusStopViewController: UIViewController, UISearchResultsUpdating {
         return searchController
     }()
 
-    private var changeSearchBarPlaceHolder: AnyObserver<SearchViewModel.InputBusStopCategory> {
+    private var changeSearchBarPlaceHolder: AnyObserver<InputBusStopCategory> {
         return Binder(self) { me, category in
             switch category {
             case .departure:
@@ -49,14 +49,14 @@ class InputBusStopViewController: UIViewController, UISearchResultsUpdating {
 
         searchController.searchResultsUpdater = self
         navigationItem.titleView = searchController.searchBar
-        dataSource.configure(with: self.tableView)
+        dataSource.configure(with: tableView)
         tableView.delegate = self
 
-        viewModel.selectedCategory.asObservable()
+        viewModel.outputs.category.asObservable()
             .bind(to: changeSearchBarPlaceHolder)
             .disposed(by: disposeBag)
 
-        viewModel.searchResult.asObservable()
+        viewModel.outputs.searchResult.asObservable()
             .bind(to: reloadData)
             .disposed(by: disposeBag)
 
@@ -71,7 +71,7 @@ class InputBusStopViewController: UIViewController, UISearchResultsUpdating {
     }
 
     func updateSearchResults(for searchController: UISearchController) {
-        viewModel.searchText.value = searchController.searchBar.text ?? ""
+        viewModel.inputs.searchText.onNext(searchController.searchBar.text ?? "")
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,7 +83,7 @@ class InputBusStopViewController: UIViewController, UISearchResultsUpdating {
 extension InputBusStopViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        viewModel._selectedIndexPath.onNext(indexPath)
+        viewModel.inputs.select.onNext(indexPath)
         searchController.isActive = false
         dismiss(animated: true, completion: nil)
     }
