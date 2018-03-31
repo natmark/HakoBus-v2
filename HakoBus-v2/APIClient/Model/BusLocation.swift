@@ -14,6 +14,9 @@ struct BusLocation: Codable {
     let destinationTime: String
     let estimatedDepartureTime: String
     let estimatedDestinationTime: String
+    let requiredTime: String
+    let transfer: String
+    let departureInfo: String
     let betStop: BetStop
 
     struct BetStop: Codable {
@@ -36,6 +39,9 @@ struct BusLocation: Codable {
         case destinationTime = "destination_time"
         case estimatedDepartureTime = "estimated_departure_time"
         case estimatedDestinationTime = "estimated_destination_time"
+        case requiredTime = "required_time"
+        case transfer
+        case departureInfo = "departure_info"
         case betStop = "bet_stop"
     }
 }
