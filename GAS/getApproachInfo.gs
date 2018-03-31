@@ -10,7 +10,7 @@ function doGet(e) {
 
   var response = UrlFetchApp.fetch("https://hakobus.bus-navigation.jp/wgsys/wgp/bus.htm?fromType=1&toType=1&locale=ja&from=" + from + "&to=" + to)
   var html = response.getContentText()
-  var blocks = html.match(/<table width="100%">[\s\S]*?<\/div>[\s\S]*?<\/div>/ig)
+  var blocks = html.match(/<!-- ---------------- pictogram end -->[\s\S]*?<div class="route_box[\s\S]*?<!-- ---------------- pictogram start -->/ig)
   var approaches = []
 
   var infoBetStops = html.match(/showInfoBetStops([\s\S]*?);/ig)
@@ -18,12 +18,17 @@ function doGet(e) {
   if(blocks != null){
     for(var i = 0; i < blocks.length; i++){ 
       var obj = new Object();
+      Logger.log(blocks[i])
+
       obj.route = blocks[i].match(/<font size="3" style="color: blue;">([\s\S]*?)<\/font>/i)[1].trim()
       obj.destination = blocks[i].match(/<td>([\s\S]*?)<\/td>/ig)[2].match(/<td>([\s\S]*?)<\/td>/i)[1].replace("&nbsp;", "").replace(/<!--[\s\S]*?-->/, "").replace(/\s+/g, "").replace("行き","");
       obj.departure_time = blocks[i].match(/<td>([\s\S]*?)<\/td>/ig)[5].match(/<td>([\s\S]*?)<\/td>/i)[1].replace(/&nbsp;/g,"").replace(/\s+/g, "").replace("予定時刻", "");
       obj.destination_time = blocks[i].match(/<td>([\s\S]*?)<\/td>/ig)[7].match(/<td>([\s\S]*?)<\/td>/i)[1].replace(/&nbsp;/g,"").replace(/\s+/g, "").replace("予定時刻", "");
       obj.estimated_departure_time = blocks[i].match(/<td>([\s\S]*?)<\/td>/ig)[6].match(/<td>([\s\S]*?)<\/td>/i)[1].replace(/&nbsp;/g,"").replace(/\s+/g, "").replace("発車予測", "");
       obj.estimated_destination_time = blocks[i].match(/<td>([\s\S]*?)<\/td>/ig)[8].match(/<td>([\s\S]*?)<\/td>/i)[1].replace(/&nbsp;/g,"").replace(/\s+/g, "").replace("到着予測", "");
+      obj.required_time = blocks[i].match(/<td>([\s\S]*?)<\/td>/ig)[11].match(/<td>([\s\S]*?)<\/td>/i)[1].replace(/&nbsp;/g,"").replace(/\s+/g, "").replace("所要時間：", "")
+      obj.transfer = blocks[i].match(/<td>([\s\S]*?)<\/td>/ig)[12].match(/<td>([\s\S]*?)<\/td>/i)[1].replace(/&nbsp;/g,"").replace(/\s+/g, "").replace("乗り換え：", "");
+      obj.departure_info = blocks[i].match(/<td colspan="4"  style="color:#000000;">([\s\S]*?)<\/td>/i)[1].replace(/<font size="4">/,"").replace(/<\/font>/,"").replace(/&nbsp;/g,"").replace(/\s+/g, "")
       
       if(infoBetStops != null && infoBetStops.length > i) {
         var infoBetStop = infoBetStops[i].match(/showInfoBetStops\(([\s\S]*?)\);/i)[1].replace(/'/g,"").split(",")
