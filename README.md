@@ -45,15 +45,18 @@ HakoBus App supported new bus location system
   {
     route: "１０５系統（未来大経由）",
     destination: "はこだて未来大学・赤川",
-    departure_time: "19:28",
-    destination_time: "19:40",
-    estimated_departure_time: "19:32",
-    estimated_destination_time: "19:45",
+    departure_time: "07:59",
+    destination_time: "08:11",
+    estimated_departure_time: "07:59",
+    estimated_destination_time: "08:13",
+    required_time: "14分",
+    transfer: "なし",
+    departure_info: "約90分で発車します",
     bet_stop: {
       from_signpole_key: 54502,
       to_signpole_key: 54522,
       route_pattern_cd: 10684,
-      source_time: 70362
+      source_time: 28740
     }
   }
 ]
