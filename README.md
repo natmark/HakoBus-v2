@@ -1,6 +1,8 @@
 # HakoBus-v2
 HakoBus App supported new bus location system
 
+## Demo
+![Screenshot](https://github.com/natmark/HakoBus-v2/blob/master/Resources/Screenshot.gif?raw=true)
 
 ## APIs
 ### SwaggerHub Links
