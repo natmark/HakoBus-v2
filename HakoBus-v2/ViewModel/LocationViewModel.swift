@@ -18,6 +18,7 @@ protocol LocationViewModelInputs {
 }
 
 protocol LocationViewModelOutputs {
+    var updatedTime: Variable<Date> { get }
     var locations: Variable<[BusLocation]> { get }
     var destination: Variable<String> { get }
     var departure: Variable<String> { get }
@@ -42,6 +43,7 @@ final class LocationViewModel: LocationViewModelType, LocationViewModelInputs, L
     private(set) var departure = Variable<String>("")
     private(set) var didChange = Variable<BusApproachModelState>(.notFetchingYet)
     private(set) var error = Variable<APIError>(.unknown(""))
+    private(set) var updatedTime = Variable<Date>(Date())
 
     private let disposeBag: DisposeBag
     private let busApproachModel: BusApproachModel
@@ -60,8 +62,10 @@ final class LocationViewModel: LocationViewModelType, LocationViewModelInputs, L
                     switch result {
                     case .success(let locations):
                         self.locations.value = locations
+                        self.updatedTime.value = Date()
                     case .failure(let error):
                         self.error.value = error
+                        self.updatedTime.value = Date()
                     }
                 default:
                         break

@@ -27,13 +27,7 @@ extension BusLocationTableViewDataSource: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(BusNavigationTableViewCell.self, for: indexPath)
-        let location = viewModel.outputs.locations.value[indexPath.row]
-
-        cell.orderLabel.text = "\(indexPath.row + 1)"
-        cell.departureLabel.text = viewModel.outputs.departure.value
-        cell.departureTimeLabel.text = location.estimatedDepartureTime
-        cell.destinationLabel.text = viewModel.outputs.destination.value
-        cell.destinationTimeLabel.text = location.estimatedDestinationTime
+        cell.configure(indexPath: indexPath, viewModel: viewModel)
         return cell
     }
 }

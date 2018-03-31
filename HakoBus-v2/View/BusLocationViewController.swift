@@ -10,25 +10,25 @@ import UIKit
 import RxSwift
 
 class BusLocationViewController: UIViewController {
-    @IBOutlet weak var updateTimeLabel: UILabel!
+    @IBOutlet weak var updateTimeLabelButton: UIButton!
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var reloadButton: UIBarButtonItem!
     @IBOutlet weak var departureLabel: UILabel!
     @IBOutlet weak var destinationLabel: UILabel!
-    @IBOutlet weak var switchLabel: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     var dataSource: BusLocationTableViewDataSource!
     var disposeBag: DisposeBag!
-    var viewModel: LocationViewModel!
+    var viewModel: LocationViewModelType!
     var from: BusStop!
     var to: BusStop!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        navigationItem.largeTitleDisplayMode = .never
+        // navigationItem.largeTitleDisplayMode = .never
+        navigationItem.title = "検索結果"
         dataSource.configure(with: tableView)
         tableView.delegate = self
 
@@ -41,17 +41,35 @@ class BusLocationViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
-        viewModel.departure.asObservable()
-            .map { "乗車バス停: \($0)"}
+        reloadButton.rx.tap.asObservable()
+            .subscribe(onNext: { [weak self] in
+                guard let `self` = self else {
+                    return
+                }
+                self.viewModel.inputs.reload.onNext(())
+            })
+            .disposed(by: disposeBag)
+
+        viewModel.outputs.departure.asObservable()
+            .map { "乗車 : \($0)"}
             .bind(to: departureLabel.rx.text)
             .disposed(by: disposeBag)
 
-        viewModel.destination.asObservable()
-            .map { "降車バス停: \($0)"}
+        viewModel.outputs.destination.asObservable()
+            .map { "降車 : \($0)"}
             .bind(to: destinationLabel.rx.text)
             .disposed(by: disposeBag)
 
-        viewModel.didChange.asObservable()
+        viewModel.outputs.updatedTime.asObservable()
+            .map { date -> String in
+                let formatter = DateFormatter()
+                formatter.dateFormat = "更新 [HH:mm]"
+                return formatter.string(from: date)
+            }
+            .bind(to: updateTimeLabelButton.rx.title())
+            .disposed(by: disposeBag)
+
+        viewModel.outputs.didChange.asObservable()
             .subscribe(onNext: { [weak self] state in
                 guard let `self` = self else {
                     return
@@ -85,6 +103,6 @@ class BusLocationViewController: UIViewController {
 
 extension BusLocationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
+        return 180
     }
 }
