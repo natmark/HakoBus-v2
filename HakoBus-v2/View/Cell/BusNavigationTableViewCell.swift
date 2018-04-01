@@ -10,6 +10,8 @@ import UIKit
 
 class BusNavigationTableViewCell: UITableViewCell {
     @IBOutlet weak var baseView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var routeLabel: UILabel!
     @IBOutlet weak var orderLabel: UILabel!
     @IBOutlet weak var requiredTimeLabel: UILabel!
     @IBOutlet weak var arriveTimeLabel: UILabel!
@@ -34,6 +36,8 @@ class BusNavigationTableViewCell: UITableViewCell {
         orderLabel.text = "\(indexPath.row + 1)"
         departureLabel.text = viewModel.outputs.departure.value
         destinationLabel.text = viewModel.outputs.destination.value
+        titleLabel.text = location.destination
+        routeLabel.text = location.route
         departureTimeLabel.text = location.estimatedDepartureTime
         destinationTimeLabel.text = location.estimatedDestinationTime
         arriveTimeLabel.text = location.departureInfo
