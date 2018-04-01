@@ -16,7 +16,7 @@ class BusLocationViewController: UIViewController {
     @IBOutlet weak var departureLabel: UILabel!
     @IBOutlet weak var destinationLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicator: UIView!
 
     var dataSource: BusLocationTableViewDataSource!
     var disposeBag: DisposeBag!
@@ -78,14 +78,11 @@ class BusLocationViewController: UIViewController {
                 switch state {
                 case .notFetchingYet:
                     self.activityIndicator.isHidden = true
-                    self.activityIndicator.stopAnimating()
                 case .fetching:
                     self.activityIndicator.isHidden = false
-                    self.activityIndicator.startAnimating()
                 case .fetched:
                     self.tableView.reloadData()
                     self.activityIndicator.isHidden = true
-                    self.activityIndicator.stopAnimating()
                 }
             })
             .disposed(by: disposeBag)
