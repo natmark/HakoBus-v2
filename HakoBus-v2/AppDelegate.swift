@@ -7,14 +7,57 @@
 //
 
 import UIKit
+import RxSwift
+import APIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let generateNavigationController = { (rootViewController: UIViewController) -> UINavigationController in
+        var navigationController: UINavigationController
+        navigationController =  UINavigationController(rootViewController: rootViewController)
+        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.barTintColor = #colorLiteral(red: 0.6321853995, green: 0.07877074927, blue: 0.007939325646, alpha: 1)
+        navigationController.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        navigationController.navigationBar.prefersLargeTitles = true
+
+        let textAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController.navigationBar.titleTextAttributes = textAttributes
+        navigationController.navigationBar.largeTitleTextAttributes = textAttributes
+
+        return navigationController
+    }
+
+    let tabBarController: UITabBarController = {
+        let tabBarController = UITabBarController()
+        tabBarController.tabBar.tintColor = #colorLiteral(red: 0.6321853995, green: 0.07877074927, blue: 0.007939325646, alpha: 1)
+        tabBarController.tabBar.isTranslucent = false
+        tabBarController.tabBar.barTintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        return tabBarController
+    }()
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UINavigationBar.appearance().shadowImage = UIImage()
+
+        let searchViewController = SearchViewController.create()
+
+        let searchNavigationController = self.generateNavigationController(searchViewController)
+
+        searchNavigationController.tabBarItem = UITabBarItem(title: "検索", image: UIImage(named: "busIcon"), tag: 1)
+
+        self.tabBarController.setViewControllers(
+            [
+                searchNavigationController,
+                ],
+            animated: true)
+
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = self.tabBarController
+        self.window?.makeKeyAndVisible()
+
         return true
     }
 

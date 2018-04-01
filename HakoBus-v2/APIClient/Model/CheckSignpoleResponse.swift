@@ -10,7 +10,7 @@ struct CheckSignpoleResponse: Codable {
     let successStatus: Bool
     let errors: [CheckSignpoleError]
 
-    struct CheckSignpoleError: Codable {
+    struct CheckSignpoleError: Codable, Error {
         let errorCd: String?
         let errorMessage: String
         let errorType: String?
