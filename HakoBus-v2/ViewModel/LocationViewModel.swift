@@ -33,9 +33,9 @@ protocol LocationViewModelType {    var reload: PublishSubject<Void> { get }
 
 final class LocationViewModel: LocationViewModelType, LocationViewModelInputs, LocationViewModelOutputs {
     var inputs: LocationViewModelInputs { return self }
-    var reload = PublishSubject<Void>()
-    var from = PublishSubject<String>()
-    var to = PublishSubject<String>()
+    private(set) var reload = PublishSubject<Void>()
+    private(set) var from = PublishSubject<String>()
+    private(set) var to = PublishSubject<String>()
 
     var outputs: LocationViewModelOutputs { return self }
     private(set) var locations =  Variable<[BusLocation]>([])
