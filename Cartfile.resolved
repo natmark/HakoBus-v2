@@ -1,6 +1,6 @@
 github "AliSoftware/OHHTTPStubs" "6.1.0"
 github "ReactiveX/RxSwift" "4.1.2"
-github "Swinject/Swinject" "2.3.0"
+github "Swinject/Swinject" "2.4.0"
 github "Swinject/SwinjectStoryboard" "1.2.1"
 github "antitypical/Result" "3.2.4"
 github "ishkawa/APIKit" "3.2.1"
